@@ -25,7 +25,6 @@ function Register2() {
             "last_name": lnameReg,
             "password": passwordReg
         }).then((response) => {
-            console.log(response.status);
             const resp = response.status;
             if (resp == 200){
                 setAlert("Account created successfully!");

@@ -16,7 +16,6 @@ const login = () =>{
         const email = username1;
         const password = password1;
         if (email == '' || password == ''){
-            console.log("Empty input fields")
             setAlert("Invalid login credentials.")
             setFontColor('#dc3545')
         }
@@ -36,18 +35,14 @@ const login = () =>{
                 }
             }
             if (found===true){
-                console.log("Found!")
                 if(status[foundIndex].password===password){
-                    console.log("User Logged In!")
                     localStorage.setItem('email',email)
                     navigate("/shop")
                 }else{
-                    console.log("Password incoorect")
                     setAlert("Invalid login credentials.")
                     setFontColor('#dc3545')
                 }
             }else{
-                console.log("User not found")
                 setAlert("Invalid login credentials.")
                 setFontColor('#dc3545')
             }
