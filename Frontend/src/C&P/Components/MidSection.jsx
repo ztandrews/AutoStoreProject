@@ -15,18 +15,15 @@ const MidSection = () => {
     const user_email=localStorage.getItem('email')
     axios.get("https://8taym3bose.execute-api.us-east-2.amazonaws.com/getVehicles").then((res) => {
     const vehicles = res.data.body; 
-      console.log(JSON.parse(vehicles));
       setItems(JSON.parse(vehicles));
     });
   }, []);
     const addToCart= (_id,_name,_price) => {
-        console.log(_id);
         let currentCart = cart
         var found=false
         var index = 0
         for (let k=0;k<currentCart.length;k++){
           if(currentCart[k].price==_id){
-            console.log("Found");
             found=true
             index=k
           }else{
@@ -34,10 +31,12 @@ const MidSection = () => {
           }
         }
         if(found===true){
-          ///let newCount = currentCart[index].quantity+1
+          //let newCount = currentCart[index].quantity+1
           //currentCart.splice(index,1)
           //var newItems2 = {'price':_id,'quantity':newCount}
           //setCart([...currentCart,newItems2])
+          //var newItems3 = {'price':_id,'quantity':newCount,'name':_name,'carPrice':_price}
+          //setFullCart([...fullCart,newItems3])
           alert('This item is already in your cart!')
         }else{
           var newItems = {'price':_id,'quantity':1}
@@ -47,7 +46,6 @@ const MidSection = () => {
           setCart([...cart, newItems])
           setEmp(" ")
         }
-        console.log(cart);
     }
   const handleClick = async e => {
         let s = localStorage.getItem('email')
@@ -79,16 +77,13 @@ const MidSection = () => {
       var index_of_car=0
       for (let j = 0; j<current_cart.length;j++){
         if (current_cart[j].price==id_){
-          console.log("Found");
           index_of_car=j
           if (cart2.length==1){
-          console.log("Setting cart to empty")
           setFullCart([])
           setCart([])
           setTotal(0)
           setEmp("Cart is Empty")
         }else{
-        console.log('Removed Car')
         //current_cart.splice(index_of_car,1)
         //cart2.splice(index_of_car,1)
         //setFullCart(current_cart)
@@ -96,7 +91,6 @@ const MidSection = () => {
         setFullCart(current_cart.filter(item=> item.price !== id_))
         setCart(cart2.filter(item=> item.price !== id_))
         setTotal(cartTotal-_price)
-        console.log(cart)
         }
         }else{
           continue
