@@ -53,8 +53,8 @@ const MidSection = () => {
         const  {error} = await stripe.redirectToCheckout({
             lineItems:cart,
             mode:"payment",
-            successUrl:'http://localhost:3000/success',
-            cancelUrl:'http://localhost:3000/cancel',
+            successUrl:'https://main.d2k3yp2l56fg0c.amplifyapp.com/success',
+            cancelUrl:'https://main.d2k3yp2l56fg0c.amplifyapp.com/cancel',
             billingAddressCollection:'required',
             shippingAddressCollection: {allowedCountries:['US']},
             submitType:'pay',
