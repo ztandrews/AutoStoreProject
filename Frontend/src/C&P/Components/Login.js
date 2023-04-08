@@ -20,33 +20,27 @@ const login = () =>{
             setFontColor('#dc3545')
         }
         else{
-        axios.get(`https://3m5ce7ulx5.execute-api.us-east-2.amazonaws.com/getUsers`, {
-        }).then((response) => {
-            const status = (JSON.parse(response.data.body));
-            let found=false
-            let foundIndex=0
-            for (let i=0;i<status.length;i++){
-                if (status[i].email===email){
-                    found = true
-                    foundIndex=i
-                }
-                else{
-                    continue
-                }
+            axios.post("https://exf166j6p4.execute-api.us-east-2.amazonaws.com/verification", 
+            {
+                "email":email,
+                "password":password
             }
-            if (found===true){
-                if(status[foundIndex].password===password){
+            ).then((response) => {
+                const resp = response.data.body.verified
+                console.log(resp)
+                if (resp===true){
+                    console.log("Logged in.")
                     localStorage.setItem('email',email)
                     navigate("/shop")
                 }else{
                     setAlert("Invalid login credentials.")
                     setFontColor('#dc3545')
                 }
-            }else{
-                setAlert("Invalid login credentials.")
-                setFontColor('#dc3545')
-            }
-        })
+            }).catch(function (error){
+                 setAlert("Invalid login credentials.")
+                 setFontColor('#dc3545')
+            });
+
         }
     }
   return (
