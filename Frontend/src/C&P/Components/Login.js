@@ -49,7 +49,7 @@ const login = () =>{
           <h1 className='page-header'>Login</h1>
           <div className='login'>
               <br></br>
-                  <input type="text" name="username" placeholder="Username"
+                  <input type="text" name="email" placeholder="Email"
                   onChange={(e) => {
                   setUsername(e.target.value);
               }}
@@ -66,7 +66,7 @@ const login = () =>{
                   <button className='blue-btn' onClick={login}>Login</button>
                   <br></br>
                   <br></br>
-                  <p>Don't hace an account?<br></br>
+                  <p>Don't have an account?<br></br>
                     <a href='/register'>Register</a>
                   <h5 style={{color: fontColor}}>{alert}</h5>
                   </p>
