@@ -4,6 +4,7 @@ import {useRef, useState, useEffect} from 'react';
 import {
     Link, useNavigate
 } from "react-router-dom";
+import  secureLocalStorage  from  "react-secure-storage";
 
 function Login() {
     const navigate = useNavigate();
@@ -30,7 +31,7 @@ const login = () =>{
                 console.log(resp)
                 if (resp===true){
                     console.log("Logged in.")
-                    localStorage.setItem('email',email)
+                    secureLocalStorage.setItem('email',email)
                     navigate("/shop")
                 }else{
                     setAlert("Invalid login credentials.")

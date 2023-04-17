@@ -1,10 +1,11 @@
 import React, {useEffect,useState}from 'react'
 import axios from "axios";
 import { loadStripe, CardElement, Elements,Consumercheckout } from "@stripe/stripe-js";
+import  secureLocalStorage  from  "react-secure-storage";
 
 export default function Orders() {
   const [items, setItems] = useState([]);
-  const user_email=localStorage.getItem('email')
+  const user_email=secureLocalStorage.getItem('email')
   useEffect(() => {
   const fetchData = async () => {
     const stripe =  require('stripe')('sk_test_51MjlSpFmJBZ50mnVsR6IJPJ9XSD7jygfyXQ6Z7EF3c7XvKJ92x3pdsCQ2COwBtvXMJiH6bmYta8ALe6PKCgU72T800Dw8jlhmK');
