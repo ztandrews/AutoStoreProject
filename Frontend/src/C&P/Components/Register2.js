@@ -1,19 +1,23 @@
 import React from 'react'
 import {useRef, useState, useEffect} from 'react';
 import axios from 'axios';
+import {
+    Link, useNavigate
+} from "react-router-dom";
 function Register2() {
+    const navigate = useNavigate();
     const [fnameReg, setfNameReg] = useState('');
     const [lnameReg, setlNameReg] = useState('');
     const [emailReg, setEmailReg] = useState('');
     const [usernameReg, setUsernameReg] = useState('');
     const [passwordReg, setPasswordReg] = useState('');
-
+    const [password2, setPassword2] = useState('')
     const [alert, setAlert] = useState('');
     const [fontColor, setFontColor] = useState('black')
 
     const register = (e) => {
-        if (fnameReg =='' || emailReg == '' || usernameReg =='' || passwordReg ==''){
-            setAlert("Invalid registration. Please fill out every field.");
+        if (fnameReg =='' || emailReg == '' || usernameReg =='' || passwordReg =='' || (password2!=passwordReg)){
+            setAlert("Invalid registration. Please fill out every field and make sure passwords match.");
             setFontColor('#dc3545')
         }
         else{
@@ -29,6 +33,8 @@ function Register2() {
             if (resp == 200){
                 setAlert("Account created successfully!");
                 setFontColor("#5aa864");
+                localStorage.setItem('email',emailReg)
+                navigate("/shop")
             }
             else{
                 setAlert("Error registering user.");
@@ -75,6 +81,13 @@ function Register2() {
                   <input type="password" name="password" placeholder='Password'
                   onChange={(e) => {
                   setPasswordReg(e.target.value);
+              }}
+                  ></input>
+                  <br></br>
+                  <br></br>
+                  <input type="password" name="password2" placeholder='Confirm Password'
+                  onChange={(e) => {
+                  setPassword2(e.target.value);
               }}
                   ></input>
                   <br></br>
