@@ -19,7 +19,7 @@ export const Footer = () => {
         <Modal.Header closeButton>
           <Modal.Title>
             <h1>Privacy Policy</h1>
-            <h5>Last Updated: 3/29/2023</h5>
+            <h5>Last Updated: 4/18/2023</h5>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
