@@ -29,9 +29,9 @@ At our car store, we take your privacy very seriously. We understand that your p
 <br></br>
 <br></br>
 <h5>Collection and Use of Personal Information</h5>
-We collect personal information when you visit our website or use our services. This information may include your name, email address, phone number, and payment information. We use this information to process your orders, fulfill your requests, and communicate with you about your purchases.
+We collect personal information when you create an account to use our services. This information may include your name, email address,and phone number. We use this information to process your orders, fulfill your requests, and communicate with you about your purchases. We do not collect payment information, as our payment processor, Stripe, collects and stores it only.  Stripe is a trusted third-party payment processor that handles all payment information securely and in accordance with their own privacy policies.
 <br></br>
-We do not sell or share your personal information with third parties, except as necessary to provide our services to you. We may share your information with our payment processor, Stripe, to process payments. Stripe is a trusted third-party payment processor that handles all payment information securely and in accordance with their own privacy policies.
+We do not sell or share your personal information with third parties, except as necessary to provide our services to you. We may share your information with Stripe to process payments.
 <br></br>
 <br></br>
 <h5>Data Encryption</h5>
