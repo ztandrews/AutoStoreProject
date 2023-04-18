@@ -14,10 +14,11 @@ function Register2() {
     const [password2, setPassword2] = useState('')
     const [alert, setAlert] = useState('');
     const [fontColor, setFontColor] = useState('black')
+    const [priv, setPriv] = useState('');
 
     const register = (e) => {
-        if (fnameReg =='' || emailReg == '' || usernameReg =='' || passwordReg =='' || (password2!=passwordReg)){
-            setAlert("Invalid registration. Please fill out every field and make sure passwords match.");
+        if (fnameReg =='' || emailReg == '' || usernameReg =='' || passwordReg =='' || (password2!=passwordReg) || priv != 1 || passwordReg.length<=4){
+            setAlert("Invalid registration. Please fill out every field, make sure passwords match, accept the privacy policy, and make sure password is longer than 5 characters.");
             setFontColor('#dc3545')
         }
         else{
@@ -64,7 +65,7 @@ function Register2() {
               </input>
                   <br></br>
                   <br></br>
-              <input type="text" name="email" placeholder='Email'
+              <input type="email" required name="email" placeholder='Email'
               onChange={(e) => {
                   setEmailReg(e.target.value);
               }}>
@@ -90,6 +91,11 @@ function Register2() {
                   setPassword2(e.target.value);
               }}
                   ></input>
+                  <br></br>
+                  <br></br>
+                  <h6>I Agree to the Privacy Policy</h6>
+                  <input type="checkbox" id="demoCheckbox" name="checkbox" value="1" onChange={(e) => {
+                  setPriv(e.target.value)}}></input>
                   <br></br>
                   <br></br>
                   <button className='blue-btn' onClick={register}>Register</button>
