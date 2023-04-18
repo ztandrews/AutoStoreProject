@@ -1,10 +1,11 @@
 import React from 'react'
 import {useState} from 'react';
 import CartPop from './Components/CartPop';
+import  secureLocalStorage  from  "react-secure-storage";
 
 const Navigation = () => {
     const handleClick = async e => {
-      localStorage.setItem('email','')
+      secureLocalStorage.setItem('email','')
     }
   const [importCartPop,setButtonPopup1] = useState(false)
   console.log(importCartPop)

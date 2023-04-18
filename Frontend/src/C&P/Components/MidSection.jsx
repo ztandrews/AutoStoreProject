@@ -3,6 +3,8 @@ import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
 //import Modal from 'react-modal';
 import { Modal, Button } from 'react-bootstrap'
+import  secureLocalStorage  from  "react-secure-storage";
+
 const MidSection = () => {
     const [items, setItems] = useState([]);
     const [cart, setCart] = useState([]);
@@ -11,8 +13,8 @@ const MidSection = () => {
     const [cartTotal,setTotal] = useState(0);
     const [emp, setEmp] = useState("Cart is Empty")
     useEffect(() => {
-    const username = localStorage.getItem('user')
-    const user_email=localStorage.getItem('email')
+    const username = secureLocalStorage.getItem('user')
+    const user_email=secureLocalStorage.getItem('email')
     axios.get("https://8taym3bose.execute-api.us-east-2.amazonaws.com/getVehicles").then((res) => {
     const vehicles = res.data.body; 
       setItems(JSON.parse(vehicles));
@@ -48,7 +50,7 @@ const MidSection = () => {
         }
     }
   const handleClick = async e => {
-        let s = localStorage.getItem('email')
+        let s = secureLocalStorage.getItem('email')
         const stripe = await loadStripe('pk_test_51MjlSpFmJBZ50mnV6L1RnyCUeFsoMX4FrO4So5TeMrgPVjBGSDxCuKO9RausgP5I9ZaptEbsOvUqkiMOli76jYrm00xUCB6XDh')
         const  {error} = await stripe.redirectToCheckout({
             lineItems:cart,
